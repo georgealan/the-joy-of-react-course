@@ -18,7 +18,7 @@ const message = {
 const profileUrl = `/users/${message.author.handle}`
 
 const element = (
-  <article>
+  <article style={ { filter: "var(--shadow-elevation-high)" } }>
     <article>
       <header>
         <img src={message.author.avatarSrc}/>
