@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+:root {
+  --shadow-color: 261deg 42% 52%;
+  --shadow-elevation-high:
+    drop-shadow(0.5px 1px 2px hsl(var(--shadow-color) / 0.5))
+    drop-shadow(1px 2px 4px hsl(var(--shadow-color) / 0.3))
+    drop-shadow(2px 4px 16px hsl(var(--shadow-color) / 0.10))
+    drop-shadow(4px 8px 32px hsl(var(--shadow-color) / 0.1));
+}
+html {
+  height: 100%;
+  font-family: sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: hsl(260deg 88% 85%);
+}
+#root {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(300px, 90%);
+  background: white;
+  border-radius: 8px;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+article p {
+  padding: 16px;
+  margin: 0;
+  font-size: 1.25rem;
+}
+header {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: hsl(260deg 50% 95%);
+  border-radius: 8px 8px 0px 0px;
+}
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  transform: translateY(-16px);
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom:32px;
+}
+footer {
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid hsl(260deg 50% 95%);
+  font-size: 0.875rem;
+  color: hsl(260deg 11% 49%);
+}
+header p, footer p {
+  margin: 0;
+  padding: 0;
+  font-size: unset;
+}

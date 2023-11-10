@@ -1,0 +1,108 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+html {
+  font-family: sans-serif;
+}
+body {
+  padding: 0;
+  background-color: hsl(40deg 80% 60%);
+}
+#root {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+input {
+  height: 3rem;
+  padding: 0px 8px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 6rem;
+  border-radius: 4px 0px 0px 4px;
+  border: none;
+  border-bottom: 3px solid hsl(35deg 60% 50%);
+  outline-offset: 4px;
+  outline-color: hsl(30deg 100% 45%);
+  margin-left: 8px;
+}
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: hsl(40deg 90% 85%);
+  border: none;
+  border-bottom: 3px solid hsl(35deg 60% 50%);
+  border-radius: 0px 4px 4px 0px;
+  outline-offset: 4px;
+  outline-color: hsl(30deg 100% 45%);
+  cursor: pointer;
+}
+.submit-btn img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.75
+}
+input:focus, .submit-btn:focus {
+  z-index: 2;
+}
