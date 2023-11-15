@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+}
+body {
+  background: hsl(50deg 80% 80%);
+  display: grid;
+  place-content: center;
+}
+
+.avatar-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.avatar-btn {
+  background: transparent;
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  border: 2px solid;
+  border-radius: 1000px;
+  outline: 2px solid white;
+  background: white;
+  overflow: hidden;
+}
+.avatar-btn:hover {
+  border-color: hotpink;
+  border-style: dashed;
+}
+
+.avatar {
+  display: block;
+  width: 100%;
+  border-radius: 1000px;
+  transition: transform 500ms;
+}
+.avatar-btn:hover .avatar {
+  transform: rotate(-25deg);
+  transition: transform 250ms;
+}

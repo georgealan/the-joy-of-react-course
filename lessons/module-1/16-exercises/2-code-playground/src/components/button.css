@@ -1,0 +1,19 @@
+button {
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 16px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.buttom-cancel {
+  color: red;
+  border-color: red;
+  background: white;
+}
+
+.buttom-confirm {
+  color: green;
+  border-color: green;
+  background: white;
+}

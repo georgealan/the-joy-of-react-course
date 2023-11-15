@@ -1,0 +1,52 @@
+body {
+  background-color: hsl(38deg 100% 85%);
+  padding: 16px;
+  --shadow-color: 38deg 46% 58%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.contact-card {
+  padding: 16px;
+  flex: 1;
+  min-width: 275px;
+  border-radius: 8px;
+  background: white;
+  box-shadow:
+    0.3px 0.5px 0.4px hsl(var(--shadow-color) / 0.55),
+    0.3px 0.6px 0.5px -0.7px hsl(var(--shadow-color) / 0.48),
+    0.7px 1.5px 1.2px -1.4px hsl(var(--shadow-color) / 0.41),
+    1.9px 3.7px 3.1px -2.1px hsl(var(--shadow-color) / 0.35),
+    4.1px 8.2px 6.9px -2.9px hsl(var(--shadow-color) / 0.28),
+    7.7px 15.4px 12.9px -3.6px hsl(var(--shadow-color) / 0.21),
+    13.2px 26.3px 22.1px -4.3px hsl(var(--shadow-color) / 0.14),
+    20.8px 41.5px 34.8px -5px hsl(var(--shadow-color) / 0.07);
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+dl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+}
+dt {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(38deg 40% 35%);
+}
+dd {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+}

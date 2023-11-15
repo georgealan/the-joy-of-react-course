@@ -1,0 +1,8 @@
+.fancy-button {
+  padding: 16px 32px;
+  border: 2px solid hsl(340deg 100% 50%);
+  border-radius: 4px;
+  background: hsl(340deg 100% 50% / 0.1);
+  font-size: 1rem;
+  cursor: pointer;
+}
