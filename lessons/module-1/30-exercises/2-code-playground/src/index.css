@@ -1,0 +1,30 @@
+html {
+  --spacing: 8px;
+  background: hsl(210deg, 15%, 6%);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: 16px;
+  background: white;
+  border-radius: 0px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  gap: var(--spacing);
+}
+
+.cell {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  border: 1px solid hsl(210deg 12% 70%);
+  border-radius: 4px;
+}
+.cell:hover {
+  background: hsl(210deg 20% 80%);
+}

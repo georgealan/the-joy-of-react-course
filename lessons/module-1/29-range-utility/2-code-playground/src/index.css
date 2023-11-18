@@ -1,0 +1,20 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed hsl(0deg 0% 75%);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.star-wrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.gold-star {
+  width: 32px;
+  height: 32px;
+}
+h2 {
+  margin-bottom: 16px;
+}

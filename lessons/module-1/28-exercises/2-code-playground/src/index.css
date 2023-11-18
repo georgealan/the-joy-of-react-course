@@ -1,0 +1,72 @@
+:root {
+  --shadow-color: 286deg 36% 48%;
+  --shadow-elevation-high:
+    drop-shadow(0.3px 0.5px 0.5px hsl(var(--shadow-color) / 0.69))
+    drop-shadow(3.7px 7.4px 7.3px hsl(var(--shadow-color) / 0.49))
+    drop-shadow(31.3px 62.5px 61.9px hsl(var(--shadow-color) / 0.22));
+}
+
+body {
+  background: hsl(285deg 90% 90%);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  filter: var(--shadow-elevation-high);
+  padding: 48px;
+}
+
+.profile-card {
+  width: 350px;
+  border-radius: 100px 100px 16px 16px;
+  background: white;
+  padding: 16px;
+  padding-top: 0px;
+}
+
+.profile-card header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: -24px;
+}
+
+.profile-card header img {
+  width: 200px;
+  border-radius: 32px 32px 64px 64px;
+  border: 4px solid white;
+  margin-bottom: 16px;
+}
+
+.joined {
+  color: hsl(0deg 0% 25%);
+}
+
+.badge-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style-type: none;
+  padding: 8px;
+  border: 2px dashed hsl(0deg 0% 80%);
+  margin-top: 24px;
+  border-radius: 8px;
+}
+.badge-list li {
+  padding: 8px;
+  background: hsl(0deg 0% 92%);
+  border-radius: 4px;
+}
+
+.golden.badge-list {
+  border-color: hsl(50deg 100% 50%);
+}
+.golden.badge-list li {
+  background: hsl(50deg 70% 92%);
+}

@@ -1,0 +1,76 @@
+@keyframes bounce {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.4);
+  }
+}
+@keyframes glow {
+  from {
+    color: hsl(200deg 100% 50%);
+  }
+  to {
+    color: hsl(260deg 100% 70%);
+  }
+}
+
+.glowingReview {
+  display: inline-block;
+  color: hsl(230deg 100% 60%);
+  animation: glow 1500ms alternate infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glowingReview {
+    animation:
+      bounce 1000ms alternate infinite ease-in-out,
+      glow 1500ms alternate infinite ease-in-out;
+    transform-origin: left 75%;
+  }
+}
+
+
+.movie {
+  display: flex;
+  gap: 32px;
+  max-width: 600px;
+}
+
+.thumbnailWrapper {
+  flex: 1;
+  max-width: 250px;
+  filter: var(--shadow-elevation-high);
+}
+.textWrapper {
+  flex: 1;
+}
+
+.thumbnailWrapper img {
+  display: block;
+  width: 100%;
+  border: 3px solid white;
+  border-radius: 8px;
+}
+
+.movie h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.synopsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 400px) {
+  .movie {
+    flex-direction: column;
+  }
+  .thumbnailWrapper {
+    align-self: center;
+  }
+}

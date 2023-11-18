@@ -1,0 +1,22 @@
+:root {
+  --shadow-color: 0deg 0% 25%;
+  --shadow-elevation-high:
+    drop-shadow(0.3px 0.5px 0.5px hsl(var(--shadow-color) / 0.25))
+    drop-shadow(0.9px 1.7px 1.7px hsl(var(--shadow-color) / 0.2))
+    drop-shadow(1.8px 3.7px 3.6px hsl(var(--shadow-color) / 0.15))
+    drop-shadow(3.7px 7.4px 7.3px hsl(var(--shadow-color) / 0.1))
+    drop-shadow(7.1px 14.1px 14px hsl(var(--shadow-color) / 0.05));
+}
+
+body {
+  padding: 0px;
+  background-color: hsl(0deg, 0%, 95%);
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 16px;
+}
