@@ -5,6 +5,10 @@
 - [React supporting screen readers](#react-supporting-screen-readers)
   - [VisuallyHidden vs. aria-label](#visuallyhidden-vs-aria-label)
 - [Class utilities](#class-utilities)
+- [Working With State](#working-with-state)
+  - [Event Handlers](#event-handlers)
+  - [Staying within the abstraction](#staying-within-the-abstraction)
+  - [Specifying Arguments](#specifying-arguments)
 
 ## React supporting screen readers
 
@@ -137,3 +141,81 @@ import clsx from 'clsx';
 The ```clsx``` function will take each of these arguments and produce a unified string that satisfies the ```className``` prop requirements. It'll automatically remove falsy values like ```false``` or ```null```.
 
 Ultimately, it's not a game-changer, but it can be a handy little utility! It shaves off some of the rough edges of trying to construct the string ourselves.
+
+## Working With State
+
+In the early days of the web, websites were essentially fancy documents. We'd load one HTML file, read the content, and then load another one.
+
+The beautiful, amazing, magical thing about the modern web is that web applications are interactive. The app can respond to user actions in real-time, without needing to fetch a whole new page.
+
+React has a really novel approach towards managing this interactivity. And once you get used to it, it's really hard to imagine managing it any other way.
+
+### Event Handlers
+
+As the user interacts with the page, hundreds of events are fired off in response. The browser is like an invasive private investigator, tracking every little thing you do.
+
+When we're building dynamic web applications, these events become super important. We'll listen for these events, and use them to trigger state changes. When the user clicks the "X" button, we dismiss the prompt. When the user submits the form, we show a loading spinner.
+
+In order to respond to an event, we need to listen for it. JavaScript provides a built-in way to do this, with the ```addEventListener``` method:
+
+```js
+const button = document.querySelector('.btn');
+
+function doSomething() {
+  // Stuff here
+}
+
+button.addEventListener('click', doSomething);
+```
+
+In this code, we're listening for a specific event (clicks) targeting a specific element (.btn). We have a function which is meant to handle this event, doSomething. When the user clicks this particular button, our handler function will be invoked, allowing us to do something in response.
+
+The web platform offers another way to do this as well. We can embed our handler right in the HTML:
+
+```html
+<button onclick="doSomething()">
+  Click me!
+</button>
+```
+
+React piggybacks on this pattern, allowing us to pass an event handler right in the JSX:
+
+```js
+function App() {
+  function doSomething() {
+    // Stuff here
+  }
+
+  return (
+    <button onClick={doSomething}>
+      Click me!
+    </button>
+  );
+}
+```
+
+As with addEventListener, this code will perform the same duty: when the user clicks the button, the doSomething function will be called.
+
+This is the recommended way to handle events in React. While we do sometimes have to use addEventListener for window-level events (covered in Module 3), we should try and use the “on X” props like onClick and onChange whenever possible.
+
+There are a few good reasons why:
+
+1. **Automatic cleanup.** Whenever we add an event listener, we're also supposed to remove it when we're done, with removeEventListener. If we forget to do this, we'll introduce a memory leak?. React automatically removes listeners for us when we use “on X” handler functions.
+2. **Improved performance.** By giving React control over the event listeners, it can optimize things for us, like batching multiple event listeners together to reduce memory consumption.
+3. **No DOM interaction.** React likes for us to stay within its abstraction. We generally try and avoid interacting with the DOM directly. In order to use addEventListener, we have to look up the element with querySelector. This is something we should avoid. The “happy path” in React involves letting React do the DOM manipulation for us.
+
+### Staying within the abstraction
+
+I want to expand on that last bullet point a bit, because it gets at something really important.
+
+One of the core ideas behind React is that it does the DOM manipulation for you. When using React, **you shouldn't really be using querySelector at all.** We want to stay within React's abstraction, rather than trying to compete with it to manage the DOM.
+
+When I first started learning React in 2015, my tool of choice was jQuery. If you're not familiar, jQuery is a tool that makes it easy to select and modify the DOM. It's a DOM manipulation tool.
+
+I remember being frustrated that my “tried and true” conventions were suddenly considered bad practices in React. Sometimes, it seems much simpler to manage the DOM with jQuery, rather than trying to figure out how to do it with React.
+
+Honestly, though, I set myself back with this mindset. I tried to bend React into a shape that was familiar to me, but React just isn't that flexible. Once I finally learned how to do things properly, everything became so much simpler and easier.
+
+When learning a new technology, it's natural to try and squeeze it into a familiar shape. But I promise you, you'll have a much better time learning to swim with the current, rather than trying to fight against it.
+
+### Specifying Arguments
