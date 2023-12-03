@@ -1,68 +1,151 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+  Comment out this chunk to disable motion:
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .ball {
+    animation: moveBall 15000ms ease-in-out infinite alternate;
+  }
+  .bomb {
+    animation: moveBomb 12345ms ease-in-out infinite alternate;
+  }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  background-color: hsl(210deg 15% 6%);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  outline: 2px solid hsl(0deg 0% 100% / 0.5);
+  overflow: hidden;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.ball, .bomb {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
-  transition: border-color 0.25s;
+  will-change: transform;
 }
-button:hover {
-  border-color: #646cff;
+.ball {
+  left: 0;
+  background: hsl(340deg 100% 55%);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.ball::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 40%;
+  height: 15%;
+  border-radius: 50%;
+  background: hsl(0deg 0% 100% / 0.9);
+  mix-blend-mode: overlay;
+  filter: blur(3px);
+  transform: rotate(-30deg);
+}
+.bomb {
+  left: 50px;
+  background: transparent;
+  font-size: 3rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@keyframes moveBall {
+  0% {
+    transform: translate(150px, 40px);
   }
-  a:hover {
-    color: #747bff;
+  10% {
+    transform: translate(10px, 230px);
   }
-  button {
-    background-color: #f9f9f9;
+  16% {
+    transform: translate(50px, 130px);
+  }
+  25% {
+    transform: translate(250px, 20px);
+  }
+  30% {
+    transform: translate(210px, 0px);
+  }
+  39% {
+    transform: translate(20px, 250px);
+  }
+  50% {
+    transform: translate(150px, 150px);
+  }
+  60% {
+    transform: translate(234px, 160px);
+  }
+  62% {
+    transform: translate(250px, 150px);
+  }
+  64.5% {
+    transform: translate(240px, 135px);
+  }
+  70% {
+    transform: translate(0px, 0px);
+  }
+  76% {
+    transform: translate(100px, 100px);
+  }
+  82% {
+    transform: translate(200px, 0px);
+  }
+  90% {
+    transform: translate(100px, 250px);
+  }
+  100% {
+    transform: translate(150px, 40px);
+  }
+}
+@keyframes moveBomb {
+  0% {
+    transform: translate(0px, 140px);
+  }
+  5% {
+    transform: translate(160px, 30px);
+  }
+  12% {
+    transform: translate(180px, 130px);
+  }
+  25% {
+    transform: translate(0px, 40px);
+  }
+  28% {
+    transform: translate(20px, 20px);
+  }
+  40% {
+    transform: translate(200px, 240px);
+  }
+  47% {
+    transform: translate(100px, 200px);
+  }
+  50% {
+    transform: translate(50px, 230px);
+  }
+  64% {
+    transform: translate(-50px, 0px);
+  }
+  68% {
+    transform: translate(40px, 35px);
+  }
+  76% {
+    transform: translate(-31px, 200px);
+  }
+  84.5% {
+    transform: translate(150px, 120px);
+  }
+  93% {
+    transform: translate(30px, 240px);
+  }
+  100% {
+    transform: translate(0px, 140px);
   }
 }
